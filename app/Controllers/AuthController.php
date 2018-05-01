@@ -335,17 +335,19 @@ class AuthController extends BaseController
             return $response->getBody()->write(json_encode($res));
         }
 
-        if ($imtype==""||$wechat=="") {
-            $res['ret'] = 0;
-            $res['msg'] = "请填上你的联络方式";
-            return $response->getBody()->write(json_encode($res));
-        }
+        if (Config::get('enable_im') == true) {
+            if ($imtype==""||$wechat=="") {
+                $res['ret'] = 0;
+                $res['msg'] = "请填上你的联络方式";
+                return $response->getBody()->write(json_encode($res));
+            }
 
-        $user = User::where('im_value', $wechat)->where('im_type', $imtype)->first();
-        if ($user != null) {
-            $res['ret'] = 0;
-            $res['msg'] = "此联络方式已注册";
-            return $response->getBody()->write(json_encode($res));
+            $user = User::where('im_value', $wechat)->where('im_type', $imtype)->first();
+            if ($user != null) {
+                $res['ret'] = 0;
+                $res['msg'] = "此联络方式已注册";
+                return $response->getBody()->write(json_encode($res));
+            }
         }
         if (Config::get('enable_email_verify')=='true') {
             EmailVerify::where('email', '=', $email)->delete();

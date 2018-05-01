@@ -109,12 +109,8 @@
                                                       <p><a href="/user/announcement">点击这里查看Linux傻瓜式教程</a></p> 
 													</div>
 													<div class="tab-pane fade" id="all_ssr_ios">
-                                                        <p><span class="icon icon-lg text-white">looks_one</span> 切换<code>App Store</code>账号-ID:<code>XXXXXXX@icloud.com</code> 密码<code>XXXXXXXX</code>注意特殊符号与大小写,如果显示需要解锁账号，请提交工单或邮件。（千万不要试图登陆iCloud，会上传您的照片与通讯录到这个账户上）</p>
-                                                         <p><span class="icon icon-lg text-white">looks_two</span> 商店搜索<code>Shadowrocket</code>下载安装</p>
-                                                      	<p><span class="icon icon-lg text-white">looks_3</span> 安装完成后切换回您自己的账号。（请务必切换回您自己的账户）</p>
-														<p><span class="icon icon-lg text-white">looks_3</span> 打开Shadowrocket软件后，点击右上角<span class="icon icon-lg text-white">add</span>，添加类型为<code>Subscribe</code>，URL填写以下地址即可自动更新节点</p>
-                                                      <p><span class="icon icon-lg text-white">looks_4</span> 选择任意节点点击连接，然后点击allow后解锁指纹</p>
-                                                      <p><span class="icon icon-lg text-white">looks_5</span> 注意：第一次连接可能不能用，导入后程序退出并重新打开程序后连接即可！</p>
+                                                        <p><span class="icon icon-lg text-white">looks_one</span> <code><a href="https://itunes.apple.com/cn/app/bestwingy/id1299750718?mt=8">App Store 点击下载 </a></code></p>
+                                                         <p><span class="icon icon-lg text-white">looks_two</span> 或者商店搜索<code>bestwingy</code>下载安装</p>
 														<p><span class="icon icon-lg text-white">flash_auto</span> 订阅地址：<input type="text" class="input form-control form-control-monospace" name="input1" readonly value="{$baseUrl}/link/{$ssr_sub_token}?mu=0" readonly="true"><button class="copy-text btn btn-subscription" type="button" data-clipboard-text="{$baseUrl}/link/{$ssr_sub_token}?mu=0">点击拷贝订阅地址</button><br>
                                                       <p><a href="/user/announcement">点击这里查看iOS傻瓜式教程</a></p> 
 													</div>
@@ -242,8 +238,7 @@
 														<p><a href="/ssr-download/ss-mac.zip">下载</a>，安装，然后下载<a href="/user/getpcconf?is_mu=0&is_ss=1">这个（普通端口）</a>或者<a href="/user/getpcconf?is_mu=1&is_ss=1">这个（单端口多用户）</a>，运行程序，小飞机上右键 服务器列表 子菜单 的 “导入服务器配置文件...” 导入这个文件，然后选择一个合适的服务器，更新一下PAC，然后开启系统代理即可上网。</p>
 													</div>
 													<div class="tab-pane fade" id="all_ss_ios">
-														<p>推荐下载<a href="https://itunes.apple.com/cn/app/shadowrocket/id932747118?mt=8">Shadowrocket</a>，已购买此软件的美国商店Apple ID:<code>shz7348@icloud.com</code> 密码<code>Qq654321.</code>注意特殊符号与大小写,自行切换商店账号下载安装，然后在 Safari 中点击<a href="{$ss_url_all}">这个（普通端口）</a>或者<a href="{$ss_url_all_mu}">这个（单端口多用户）</a>，然后点击确定，就可以批量添加节点。</p>
-														<p>iOS 下载<a href="/link/{$ios_token}?is_ss=1">这个（普通端口）</a>或者<a href="/link/{$ios_token}?is_ss=1&is_mu=1">这个（单端口多用户）</a>，导入到 Surge 中，然后就可以随意切换服务器上网了。</p>
+														<p>推荐下载<a href="https://itunes.apple.com/cn/app/bestwingy/id1299750718?mt=8">bestwingy</a>，之后添加本站的节点，确保你已经购买了流量，享受自由上网的快乐吧！</p>
 													</div>
 													<div class="tab-pane fade" id="all_ss_android">
 														<p><a href="/ssr-download/ss-android.apk">下载</a>，再<a href="/ssr-download/ss-android-obfs.apk">下载</a>，然后安装，然后在手机上点击 <a class="copy-text" data-clipboard-text="{$ss_url_all}"> 这个链接（普通端口）</a>或者<a class="copy-text" data-clipboard-text="{$ss_url_all_mu}">这个链接（单端口多用户端口）</a>复制到剪贴板，打开 Shadowsocks 客户端，选择从剪贴板导入，然后选择一个节点，设置一下路由为绕过大陆，点击飞机就可以上网了。</p>
@@ -286,7 +281,7 @@
                                           </p>
                                           {if $user->class!=0}
                                           	 <p><dt>Telegram(VIP可见)</dt>
-											<dd><i class="icon icon-md t4-text">stars</i>&nbsp;<a href="请到index.tpl第299行修改" target="view_window">点击加入TG群</a></dd>
+											<dd><i class="icon icon-md t4-text">stars</i>&nbsp;<a href="https://t.me/joinchat/EG13uBI6MZ5SUKlg4dDndA" target="view_window">点击加入TG群</a></dd>
                                           {else}
                                              
                                               {/if}

@@ -33,7 +33,7 @@
 	</div>
 </div>
 <script>
-	var type = "wepay";
+	var type = "alipay";
 	var pid = 0;
 window.onload = function(){
 	$('body').append("<script src=\" \/assets\/public\/js\/jquery.qrcode.min.js \"><\/script>");
@@ -101,7 +101,7 @@ window.onload = function(){
 			});
 			tid = setTimeout(f, 1000);
 		}
-		setTimeout(f, 2000);
+		//setTimeout(f, 2000);
 	});
 }
 </script>

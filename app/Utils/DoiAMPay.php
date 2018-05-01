@@ -83,8 +83,8 @@ class DoiAMPay{
             'price' => $price,
             'phone' => $settings['phone'],
             'mchid' => $settings['mchid'],
-            'subject' => Config::get("appName")."充值".$price."元",
-            'body' => Config::get("appName")."充值".$price."元",
+            'subject' => "充值".$price."元",
+            'body' => "充值".$price."元",
             'type' => 'Mod',
         ];
         $data = DoiAM::sign($data,$settings['token']);
@@ -109,7 +109,7 @@ class DoiAMPay{
          echo "您已经成功支付 $money 元,正在跳转..";
          echo <<<HTML
 <script>
-    location.href="/user/code";
+    location.href="https://jettss.cloud/user/code";
 </script>
 HTML;
         return;
@@ -129,6 +129,8 @@ HTML;
                 return json_encode(['errcode'=>0]);
             }
             $p->status=1;
+            $p->tradeno = $transid;
+            $p->datetime = date("Y-m-d H:i:s");
             $p->save();
             $user = User::find($p->userid);
             $user->money += $p->total;

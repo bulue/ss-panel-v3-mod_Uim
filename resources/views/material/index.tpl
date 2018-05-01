@@ -58,8 +58,9 @@
 								如果想自定义文本请删除下面这段script代码,格式为
 								<p>自定义文本</p>
 								-->
-								<script type="text/javascript" src="https://api.lwl12.com/hitokoto/main/get?encode=js&charset=utf-8"></script><div id="lwlhitokoto"><script>lwlhitokoto()</script></div>
-                          </div>
+								<p>经济型shadowsocks服务, 提供优质快速的服务</p>
+								<p>专业Shadowsocks科学上网账号，高质量低延迟，安全稳定，专业技术支持 </p>
+                            </div>
                       </div>	
                               <nav>
 							<ul>
@@ -79,7 +80,9 @@
                       <!--标签1开始-->
                       <article id="1">
                       <h2 class="major">简介</h2>
-                      <p>这里是示范文字</p><p> 请到站点文件夹</p><p>resources/views/material/index.tpl</p><p>第79行进行修改</p></article>
+                      <p>经济型shadowsocks服务, 提供优质快速的服务</p>
+					  <p>专业Shadowsocks科学上网账号，高质量低延迟，安全稳定，专业技术支持 </p>
+					</article>
 					  <!--
 					  简介修改示例: 
 					  <p> 123</p>
@@ -88,16 +91,12 @@
                      <!--标签4开始-->
                       <article id="4">
 								<h2 class="major">联系我们</h2>
-								<ul class="icons">
-                                   <p>此处填写联系方式</p>
-                                    <li>
-                                      <a target="_blank" href="#" class="icon fa-facebook">
+								<ul >
+                                      <li><a href="https://t.me/joinchat/EG13uBI6MZ5SUKlg4dDndA" class="icon fa-users"><span class="label"></span> 加入TG群组 </a></li>
+                                      <!-- <a target="_blank" href="#" class="icon fa-facebook"> -->
 									 <!-- 请在fontawesome.com寻找替换图标 href替换链接 -->
-                                      <span class="label">Facebook</span>
-                                      </a>
-                                    </li>
                                   </ul>
-                                  </article>
+                      </article>
                       <!--标签5开始-->
 	                        <article id="5">
 							<h2 class="major">软件下載</h2>
@@ -148,12 +147,12 @@
                               </div>
                      <!-- 版权底部 -->
                       <footer id="footer">
-                   <p class="copyright">&copy;2015-2017 {$config["appName"]}</p>
+                   <p class="copyright">&copy;2018 {$config["appName"]}</p>
                       </footer>
               <!-- 版权结束 -->
 			 </div>
                 <!-- BG -->
-			<div id="bg"></div>
+			<!-- <div id="bg"></div> -->
 	        	<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
