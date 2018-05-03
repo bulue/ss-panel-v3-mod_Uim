@@ -29,48 +29,58 @@
 						</div>
 					</div>
                   
-                  
-					
-					<div class="table-responsive">
-						{$shops->render()}
-						<table class="table ">
-                            <tr>
+                  {foreach $shops as $shop}
+					<div class="tile tile-collapse">
+						<div data-toggle="tile" data-target="#heading{$shop->id}">
+							<div class="tile-inner">
+								<div class="text-overflow">{$shop->name}&nbsp;<span class="label label-brand">{$shop->price} 元</span></div>
+							</div>
+						</div>
+						<div class="collapsible-region collapse" id="heading{$shop->id}" style="height: 0px;">
+							<div style="padding:18px">
+								<p class="card-heading">
+									<span>{$shop->name}</span>
+								</p>
+								<hr>
+                              	<h4 style="margin-top:12px">商品类型</h4>
+                              	<span class="label label-brand-accent">套餐</span>
+                              	<h4 style="margin-top:12px">商品内容</h4>
+								<p></p><ul>
+                              		<li>所有节点无限速使用</li>                             	 	                              
+									<li>每月 {$shop->bandwidth()}GiB 流量</li>
+									{if $shop->expire()==0}
+									<li>套餐有效期 永久</li>	
+									{else}
+									<li>套餐有效期 {$shop->expire()} 天</li>	
+									{/if}   
+									{if $shop->connector() == 0}
+									<li>不限制设备数量</li>
+									{else}                           
+                              		<li>最多支持 {$shop->connector()}} 台设备同时使用</li>
+                              		{/if}                            
+								</ul><p></p>
+                              
+								<h4 style="margin-top:12px">续费</h4>
+																<span class="label label-brand-accent">不能自动续费</span>
 								
-                            <!--    <th>ID</th>    -->
-                                <th>套餐</th>
-								<th>价格</th>
-								<th>套餐详情</th>
-                           <!--       <th>自动续费天数</th>
-								<th>续费时重置流量</th>     -->
-                              <th>操作</th>
-                                
-                            </tr>
-                            {foreach $shops as $shop}
-                            <tr>
-								
-                            <!--     <td>#{$shop->id}</td>    -->
-                                <td>{$shop->name}</td>
-								<td>{$shop->price} 元</td>
-                                <td>{$shop->content()}</td>
-							  <!--	{if $shop->auto_renew==0}
-                                <td>不能自动续费</td>
+								<h4 style="margin-top:12px">续费时重置流量</h4>
+								{if $shop->auto_renew==0}
+								<span class="label label-brand-accent">不自动重置</span>
 								{else}
-								<td>可选 在 {$shop->auto_renew} 天后自动续费</td>
+								<span class="label label-brand-accent">自动重置</span>
 								{/if}
-								
-								{if $shop->auto_reset_bandwidth==0}
-                                <td>不自动重置</td>
-								{else}
-								<td>自动重置</td>
-								{/if}  -->
-                                <td>
-                                    <a class="btn btn-brand-accent" href="javascript:void(0);" onClick="buy('{$shop->id}',{$shop->auto_renew},{$shop->auto_reset_bandwidth})">购买</a>
-                                </td>
-                            </tr>
-                            {/foreach}
-                        </table>
-						{$shops->render()}
+								<h4 style="margin-top:12px">订购总额</h4>
+								<span class="label label-brand-accent">{$shop->price} 元</span>
+
+								<hr>
+								<a class="btn btn-brand" href="javascript:void(0);" onclick="buy('{$shop->id}',{$shop->auto_renew},{$shop->auto_reset_bandwidth})" style="background-color: #4cae4c;padding-right:16px">
+									<span style="margin-left:8px;margin-right:8px" class="icon">local_grocery_store</span>立即购买</a>
+									<a class="btn btn-brand" href="/user/code" style="background-color: #337ab7;padding-right:16px;margin-left:8px"><span style="margin-left:8px;margin-right:8px" class="icon">local_gas_station</span>充值</a>
+									<br>
+								</div>
+							</div>
 					</div>
+					{/foreach}
 					
 					
 					<div aria-hidden="true" class="modal modal-va-middle fade" id="coupon_modal" role="dialog" tabindex="-1">
