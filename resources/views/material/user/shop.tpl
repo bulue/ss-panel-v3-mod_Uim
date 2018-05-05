@@ -48,20 +48,20 @@
 								<p></p><ul>
                               		<li>所有节点无限速使用</li>                             	 	                              
 									<li>每月 {$shop->bandwidth()}GiB 流量</li>
-									{if $shop->expire()==0}
+									{if $shop->class_expire()==0}
 									<li>套餐有效期 永久</li>	
 									{else}
-									<li>套餐有效期 {$shop->expire()} 天</li>	
+									<li>套餐有效期 {$shop->class_expire()} 天</li>	
 									{/if}   
 									{if $shop->connector() == 0}
 									<li>不限制设备数量</li>
 									{else}                           
-                              		<li>最多支持 {$shop->connector()}} 台设备同时使用</li>
+                              		<li>最多支持 {$shop->connector()} 台设备同时使用</li>
                               		{/if}                            
 								</ul><p></p>
                               
 								<h4 style="margin-top:12px">续费</h4>
-																<span class="label label-brand-accent">不能自动续费</span>
+								<span class="label label-brand-accent">不能自动续费</span>
 								
 								<h4 style="margin-top:12px">续费时重置流量</h4>
 								{if $shop->auto_renew==0}
