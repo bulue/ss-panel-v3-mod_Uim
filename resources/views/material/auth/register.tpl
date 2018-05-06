@@ -86,7 +86,7 @@
 											</div>
 										</div>
 
-
+										{*
 										<div class="form-group form-group-label">
 											<div class="row">
 												<div class="col-md-10 col-md-push-1">
@@ -111,7 +111,7 @@
 												</div>
 											</div>
 										</div>
-
+										*}
 
 
 									<!--	{if $enable_invite_code == 'true'}  -->
@@ -394,7 +394,7 @@ function time(o) {
 	{
 	  var name = cname + "=";
 	  var ca = document.cookie.split(';');
-	  for(var i=0; i<ca.length; i++) 
+	  for(var i=0; i<ca.length; i++)
 	  {
 	    var c = ca[i].trim();
 	    if (c.indexOf(name)==0) return c.substring(name.length,c.length);
@@ -405,7 +405,7 @@ function time(o) {
 	{*dumplin:读取url参数写入cookie，自动跳转隐藏url邀请码*}
 	if (getQueryVariable('code')!=''){
 		setCookie('code',getQueryVariable('code'),30);
-		window.location.href='/auth/register'; 
+		window.location.href='/auth/register';
 	}
 
 	{*dumplin:读取cookie，自动填入邀请码框*}

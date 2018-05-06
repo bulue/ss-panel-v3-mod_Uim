@@ -6,6 +6,19 @@
 -->
 <html>
 	<head>
+		{if $config["enable_adwords"] == 'true'}
+		{literal}
+		<!-- Global site tag (gtag.js) - Google AdWords: 810034674 -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=AW-810034674"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'AW-810034674');
+		</script>
+		{/literal}
+		{/if}
 		<title>{$config["appName"]}</title>
         <meta name="keywords" content=""/>
         <meta name="description" content=""/>
