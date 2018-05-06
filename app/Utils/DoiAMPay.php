@@ -77,6 +77,7 @@ class DoiAMPay{
         $pl = new Paylist();
         $pl->userid = $user->id;
         $pl->total = $price;
+      	$pl->domain= $_SERVER['HTTP_HOST'];
         $pl->save();
         $data = [
             'trade' => $pl->id,
@@ -106,10 +107,13 @@ class DoiAMPay{
     }
     public function handle_return($request, $response, $args){
         $money = $_GET['money'];
+        $out_trade_no = $_GET['out_trade_no'];
+      $p=Paylist::find($out_trade_no);
          echo "您已经成功支付 $money 元,正在跳转..";
+
          echo <<<HTML
 <script>
-    location.href="https://jettss.cloud/user/code";
+     location.href="https://$p->domain/user/code";
 </script>
 HTML;
         return;
