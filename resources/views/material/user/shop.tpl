@@ -49,7 +49,7 @@
 									{if $shop->speedlimit() == 0}
                   <li>所有节点无限速使用</li>
 									{else}
-									<li>最大带宽{$shop->speedlimit()}Mbps(并不影响响应速度,4Mbps的速度足够看高清视频了.如有疑问请发工单.)</li>
+									<li>最大带宽{$shop->speedlimit()}Mbps(响应速度不变.如有疑问请发工单.)</li>
 									{/if}
 									<li>每月 {$shop->bandwidth()}GiB 流量</li>
 									{if $shop->class_expire()==0}
