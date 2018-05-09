@@ -19,7 +19,7 @@
 		<div class="container">
 			<div class="col-lg-12 col-sm-12">
 				<section class="content-inner margin-top-no">
-					
+
 					<div class="card">
 						<div class="card-main">
 							<div class="card-inner">
@@ -28,7 +28,7 @@
 							</div>
 						</div>
 					</div>
-                  
+
                   {foreach $shops as $shop}
 					<div class="tile tile-collapse">
 						<div data-toggle="tile" data-target="#heading{$shop->id}">
@@ -46,23 +46,30 @@
                               	<span class="label label-brand-accent">套餐</span>
                               	<h4 style="margin-top:12px">商品内容</h4>
 								<p></p><ul>
-                              		<li>所有节点无限速使用</li>                             	 	                              
+									{if $shop->speedlimit() == 0}
+                  <li>所有节点无限速使用</li>
+									{else}
+									<li>最大带宽{$shop->speedlimit()}Mbps(并不影响响应速度,4Mbps的速度足够看高清视频了.如有疑问请发工单.)</li>
+									{/if}
 									<li>每月 {$shop->bandwidth()}GiB 流量</li>
 									{if $shop->class_expire()==0}
-									<li>套餐有效期 永久</li>	
+									<li>套餐有效期 永久</li>
 									{else}
-									<li>套餐有效期 {$shop->class_expire()} 天</li>	
-									{/if}   
+									<li>套餐有效期 {$shop->class_expire()} 天</li>
+									{/if}
 									{if $shop->connector() == 0}
 									<li>不限制设备数量</li>
-									{else}                           
-                              		<li>最多支持 {$shop->connector()} 台设备同时使用</li>
-                              		{/if}                            
+									{else}
+                  <li>最多支持 {$shop->connector()} 台设备同时使用</li>
+                  {/if}
+									{if $shop->user_class() > 0}
+									<li>VIP等级变更为{$shop->user_class()}</li>
+									{/if}
 								</ul><p></p>
-                              
+
 								<h4 style="margin-top:12px">续费</h4>
 								<span class="label label-brand-accent">不能自动续费</span>
-								
+
 								<h4 style="margin-top:12px">续费时重置流量</h4>
 								{if $shop->auto_renew==0}
 								<span class="label label-brand-accent">不自动重置</span>
@@ -81,8 +88,8 @@
 							</div>
 					</div>
 					{/foreach}
-					
-					
+
+
 					<div aria-hidden="true" class="modal modal-va-middle fade" id="coupon_modal" role="dialog" tabindex="-1">
 						<div class="modal-dialog modal-xs">
 							<div class="modal-content">
@@ -102,8 +109,8 @@
 							</div>
 						</div>
 					</div>
-					
-					
+
+
 					<div aria-hidden="true" class="modal modal-va-middle fade" id="order_modal" role="dialog" tabindex="-1">
 						<div class="modal-dialog modal-xs">
 							<div class="modal-content">
@@ -116,28 +123,28 @@
 									<p id="credit">优惠额度：</p>
 									<p id="total">总金额：</p>
 									<p id="auto_reset">在到期时自动续费</p>
-									
+
 									<div class="checkbox switch" id="autor">
 										<label for="autorenew">
 											<input checked class="access-hide" id="autorenew" type="checkbox"><span class="switch-toggle"></span>自动续费
 										</label>
 									</div>
-									
+
 								</div>
-								
+
 								<div class="modal-footer">
 									<p class="text-right"><button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" id="order_input" type="button">确定</button></p>
 								</div>
 							</div>
 						</div>
 					</div>
-					
+
 					{include file='dialog.tpl'}
-	
+
 			</div>
-			
-			
-			
+
+
+
 		</div>
 	</main>
 
@@ -163,7 +170,7 @@ function buy(id,auto,auto_reset) {
 	{
 		document.getElementById('autor').style.display="";
 	}
-	
+
 	if(auto_reset==0)
 	{
 		document.getElementById('auto_reset').style.display="none";
@@ -172,7 +179,7 @@ function buy(id,auto,auto_reset) {
 	{
 		document.getElementById('auto_reset').style.display="";
 	}
-	
+
 	shop=id;
 	$("#coupon_modal").modal();
 }
@@ -204,7 +211,7 @@ $("#coupon_input").click(function () {
 			}
 		})
 	});
-	
+
 $("#order_input").click(function () {
 
 		if(document.getElementById('autorenew').checked)
@@ -215,7 +222,7 @@ $("#order_input").click(function () {
 		{
 			var autorenew=0;
 		}
-			
+
 		$.ajax({
 			type: "POST",
 			url: "buy",
