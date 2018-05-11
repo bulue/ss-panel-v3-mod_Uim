@@ -304,6 +304,10 @@
 			font-weight: 300;
 			color: #fff;
 		}
+		.button-red {
+		    background-color: #ff0022; /* Green */
+				color: #fff;
+		}
 	</style>
 
 
