@@ -72,6 +72,7 @@
 																	{$mu=0}
 
 																	{if URL::SSRCanConnect($user, $mu)}
+																	{$ssr_item = URL::getItem($user, $node, $mu, 0, 0)}
 																	<div class="tab-pane fade {if $ssr_prefer}active in{/if}" id="ssr_info{$node->id}">
 																	<div class="card">
 																	<div class="card-main">
@@ -102,7 +103,7 @@
 															{/if}
 													 {/if}
 
-															{$ss_item = URL::getItem($user, $node, $mu, 1, 1)}
+															{$ss_item = URL::getItem($user, $node, $mu, 0, 1)}
 															<div class="tab-pane fade {if !$ssr_prefer}active in{/if}" id="ss_info{$node->id}">
 																<div class="card">
 																<div class="card-main">
