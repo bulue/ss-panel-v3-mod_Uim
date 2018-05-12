@@ -133,7 +133,7 @@
 																<div class="card-main">
 																	<div class="card-inner">
 																	<p class="card-heading" >
-																		<button type="button" class="btn button-red" onClick="urlChange('{$node->id}',0,{if $relay_rule != null}{$relay_rule->id}{else}0{/if})">点击节点查看旧版配置信息</button>
+																		<button type="button" class="btn button-red" onClick="urlChange('{$node->id}',0,{if $relay_rule != null}{$relay_rule->id}{else}0{/if})">点击查看旧版配置信息</button>
 																	</p>
 																	 </div>
 																</div>
@@ -255,7 +255,7 @@
 																		<div class="card-main">
 																			<div class="card-inner">
 																			<p class="card-heading" >
-																				<button type="button" class="btn button-red" onClick="urlChange('{$node->id}',0,{if $relay_rule != null}{$relay_rule->id}{else}0{/if})">点击节点查看旧版配置信息</button>
+																				<button type="button" class="btn button-red" onClick="urlChange('{$node->id}',0,{if $relay_rule != null}{$relay_rule->id}{else}0{/if})">点击查看旧版配置信息</button>
 																			</p>
 																			 </div>
 																		</div>
