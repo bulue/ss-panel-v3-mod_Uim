@@ -24,12 +24,12 @@
 	</nav>
 	<div class="form-group form-group-label">
 		<label class="floating-label" for="amount">金额</label>
-		<input class="form-control" id="amount" type="text">
+		<input class="form-control" id="amount" type="text" value="25">
 	</div>
 </div>
 <div class="card-action">
 	<div class="card-action-btn pull-left">
-		<button class="btn btn-flat waves-attach" id="submit" ><span class="icon">check</span>&nbsp;充值</button>
+		<a class="btn btn-brand" id="submit" style="background-color: #337ab7;padding-right:16px;margin-left:8px"><span style="margin-left:8px;margin-right:8px" class="icon">local_gas_station</span>充值</a>
 	</div>
 </div>
 <script>

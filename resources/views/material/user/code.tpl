@@ -13,13 +13,23 @@
 	<main class="content">
 		<div class="content-header ui-content-header">
 			<div class="container">
-				<h1 class="content-heading">充值</h1>
-
-
+				<h1 class="content-heading">充值 当前余额：{$user->money} 元</h1>
 			</div>
 		</div>
 		<div class="container">
 			<section class="content-inner margin-top-no">
+				<div class="row">
+					<div class="col-lg-12 col-md-12">
+						<div class="card margin-bottom-no">
+							<div class="card-main">
+								<div class="card-inner">
+									<h4 class="margin-top-no">◆ 充值好后，请务必去购买下套餐，<a href="/user/shop">点击前往</a></h4>
+										<h4 class="margin-top-no">◆ 充值不成功请发工单<a href="/user/ticket/create">点击前往</a> 或 使用TG联系我们<a href="https://t.me/joinchat/EG13uBI6MZ5SUKlg4dDndA">点击联系</a></h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 				<div class="row">
 
 				    {if $pmw!=''}
