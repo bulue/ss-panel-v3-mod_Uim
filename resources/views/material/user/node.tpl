@@ -27,10 +27,8 @@
 									<div class="card-inner margin-bottom-no">
 										<div class="tile-wrap">
 								<p class="card-heading">免费用户节点</p>
-								{$id=0}
 								{foreach $node_prefix as $prefix => $nodes}
-										{if $node_isv6[$prefix] == 0 && $node_class[$prefix]==0}
-											{$id=$id+1}
+										{if $node_class[$prefix]==0}
                       {foreach $nodes as $node}
 													<div class="tile tile-collapse">
 														<div data-toggle="tile" data-target="#heading{$node->id}">
@@ -138,11 +136,10 @@
 																	 </div>
 																</div>
 															</div>
-
+															{/if}
 															</div>
 													</div>
 										</div>
-										{/if}
 										{/foreach}
 									{/if}
 								{/foreach}
@@ -151,7 +148,7 @@
 								<p class="card-heading">VIP用户节点</p>
 										{$id=1000}
 										{foreach $node_prefix as $prefix => $nodes}
-												{if $node_isv6[$prefix] == 0 && $node_class[$prefix]==1}
+												{if $node_class[$prefix]==1}
 													{$id=$id+1}
 		                      {foreach $nodes as $node}
 															<div class="tile tile-collapse">
@@ -260,11 +257,10 @@
 																			 </div>
 																		</div>
 																	</div>
-
+																	{/if}
 																	</div>
 															</div>
 												</div>
-												{/if}
 												{/foreach}
 											{/if}
 										{/foreach}
