@@ -274,6 +274,7 @@ class Job
 
     public static function CheckJob()
     {
+        Job::syncnode();
         //在线人数检测
         $users = User::where('node_connector', '>', 0)->get();
 
