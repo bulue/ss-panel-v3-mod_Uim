@@ -16,9 +16,12 @@ class FuncController extends BaseController
 {
     public function ping($request, $response, $args)
     {
+        $node = Node::where("node_ip", "LIKE", $_SERVER["REMOTE_ADDR"].'%')->first();
+        $node_id = $node->id;
         $res = [
             "ret" => 1,
-            "data" => 'pong'
+            "data" => 'pong',
+            "node_id" => $node_id
         ];
         return $this->echoJson($response, $res);
     }
@@ -37,7 +40,9 @@ class FuncController extends BaseController
     public function get_relay_rules($request, $response, $args)
     {
         $params = $request->getQueryParams();
-        $node_id = $params['node_id'];
+        //$node_id = $params['node_id'];
+        $node = Node::where("node_ip", "LIKE", $_SERVER["REMOTE_ADDR"].'%')->first();
+        $node_id = $node->id;
         $rules = Relay::Where('source_node_id', $node_id)->get();
 
         $res = [
@@ -74,9 +79,11 @@ class FuncController extends BaseController
         $params = $request->getQueryParams();
 
         $data = $request->getParam('data');
-        $node_id = $params['node_id'];
+        //$node_id = $params['node_id'];
 
-        $node = Node::find($node_id);
+        //$node = Node::find($node_id);
+        $node = Node::where("node_ip", "LIKE", $_SERVER["REMOTE_ADDR"].'%')->first();
+        $node_id = $node->id;
         if ($node == null) {
             $res = [
                 "ret" => 0
@@ -114,9 +121,11 @@ class FuncController extends BaseController
         $params = $request->getQueryParams();
 
         $data = $request->getParam('data');
-        $node_id = $params['node_id'];
+        //$node_id = $params['node_id'];
 
-        $node = Node::find($node_id);
+        $node = Node::where("node_ip", "LIKE", $_SERVER["REMOTE_ADDR"].'%')->first();
+        $node_id = $node->id;
+        //$node = Node::find($node_id);
         if ($node == null) {
             $res = [
                 "ret" => 0
@@ -156,9 +165,11 @@ class FuncController extends BaseController
     {
         $params = $request->getQueryParams();
 
-        $node_id = $params['node_id'];
+        //$node_id = $params['node_id'];
 
-        $node = Node::find($node_id);
+        //$node = Node::find($node_id);
+        $node = Node::where("node_ip", "LIKE", $_SERVER["REMOTE_ADDR"].'%')->first();
+        $node_id = $node->id;
         if ($node == null) {
             $res = [
                 "ret" => 0
@@ -189,9 +200,11 @@ class FuncController extends BaseController
         $params = $request->getQueryParams();
 
         $data = $request->getParam('data');
-        $node_id = $params['node_id'];
+        //$node_id = $params['node_id'];
+        $node = Node::where("node_ip", "LIKE", $_SERVER["REMOTE_ADDR"].'%')->first();
+        $node_id = $node->id;
 
-        $node = Node::find($node_id);
+        //$node = Node::find($node_id);
         if ($node == null) {
             $res = [
                 "ret" => 0

@@ -18,9 +18,10 @@ class UserController extends BaseController
     {
         $params = $request->getQueryParams();
 
-        $node_id = $params['node_id'];
+        //$node_id = $params['node_id'];
+        $node = Node::where("node_ip", "LIKE", $_SERVER["REMOTE_ADDR"].'%')->first();
 
-        $node = Node::where("id", "=", $node_id)->first();
+        //$node = Node::where("id", "=", $node_id)->first();
         if ($node == null) {
             $res = [
                 "ret" => 0
@@ -92,8 +93,10 @@ class UserController extends BaseController
 
         $data = $request->getParam('data');
         $this_time_total_bandwidth = 0;
-        $node_id = $params['node_id'];
-        $node = Node::find($node_id);
+        //$node_id = $params['node_id'];
+        //$node = Node::find($node_id);
+        $node = Node::where("node_ip", "LIKE", $_SERVER["REMOTE_ADDR"].'%')->first();
+        $node_id = $node->id;
 
         if ($node == null) {
             $res = [
@@ -160,8 +163,10 @@ class UserController extends BaseController
         $params = $request->getQueryParams();
 
         $data = $request->getParam('data');
-        $node_id = $params['node_id'];
-        $node = Node::find($node_id);
+        //$node_id = $params['node_id'];
+        //$node = Node::find($node_id);
+        $node = Node::where("node_ip", "LIKE", $_SERVER["REMOTE_ADDR"].'%')->first();
+        $node_id = $node->id;
 
         if ($node == null) {
             $res = [
@@ -196,8 +201,10 @@ class UserController extends BaseController
         $params = $request->getQueryParams();
 
         $data = $request->getParam('data');
-        $node_id = $params['node_id'];
-        $node = Node::find($node_id);
+        //$node_id = $params['node_id'];
+        //$node = Node::find($node_id);
+        $node = Node::where("node_ip", "LIKE", $_SERVER["REMOTE_ADDR"].'%')->first();
+        $node_id = $node->id;
 
         if ($node == null) {
             $res = [
