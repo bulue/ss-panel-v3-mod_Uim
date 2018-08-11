@@ -201,6 +201,11 @@ class AuthController extends BaseController
                 return $response->getBody()->write(json_encode($res));
             }
 
+            if (strpos($email, "@yopmail.com") > 0) {
+              $res['ret'] = 0;
+              $res['msg'] = "邮箱不支持";
+              return $response->getBody()->write(json_encode($res));
+            }
 
             $user = User::where('email', '=', $email)->first();
             if ($user!=null) {
@@ -303,6 +308,12 @@ class AuthController extends BaseController
             $res['ret'] = 0;
             $res['msg'] = "邮箱无效";
             return $response->getBody()->write(json_encode($res));
+        }
+
+        if (strpos($email, "@yopmail.com") > 0) {
+          $res['ret'] = 0;
+          $res['msg'] = "邮箱不支持";
+          return $response->getBody()->write(json_encode($res));
         }
         // check email
         $user = User::where('email', $email)->first();
