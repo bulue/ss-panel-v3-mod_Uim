@@ -21,8 +21,7 @@
 							<div class="card">
 								<div class="card-main">
 									<div class="card-inner margin-bottom-no">
-                    <p class="card-heading"> <i class="icon icon-md">notifications_active</i>公告栏 <a href="/user/ticket/create" >点我发起工单</a><p></p>
-										<p class="margin-bottom-no">如果有任何问题,请发工单联系我们,我们会在24小时内处理您提交的问题.
+                    				<p class="card-heading"> <i class="icon icon-md">notifications_active</i>公告栏 <a href="/user/ticket/create" >点我发起工单</a></p>
 										{if $ann != null}
 										<p>{$ann->content}</p>
 										{/if}
