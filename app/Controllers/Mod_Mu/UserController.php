@@ -118,8 +118,13 @@ class UserController extends BaseController
                 }
 
                 $user->t = time();
-                $user->u += $u * $node->traffic_rate;
-                $user->d += $d * $node->traffic_rate;
+                if ($user->class > 0) {
+                    $user->u += $u * 1;
+                    $user->d += $d * 1;
+                } else {
+                    $user->u += $u * $node->traffic_rate;
+                    $user->d += $d * $node->traffic_rate;
+                }
                 $this_time_total_bandwidth += $u + $d;
                 if (!$user->save()) {
                     $res = [
