@@ -117,14 +117,13 @@ class UserController extends BaseController
                     continue;
                 }
 
+                $traffic_rate = $node->traffic_rate;
                 $user->t = time();
-                if ($user->class > 0) {
-                    $user->u += $u * 1;
-                    $user->d += $d * 1;
-                } else {
-                    $user->u += $u * $node->traffic_rate;
-                    $user->d += $d * $node->traffic_rate;
+                if ($user->class > 0 && $traffic_rate > 1.0) {
+                    $traffic_rate = 1.0;
                 }
+                $user->u += $u * $traffic_rate;
+                $user->d += $d * $traffic_rate;
                 $this_time_total_bandwidth += $u + $d;
                 if (!$user->save()) {
                     $res = [
@@ -140,8 +139,8 @@ class UserController extends BaseController
                 $traffic->u = $u;
                 $traffic->d = $d;
                 $traffic->node_id = $node_id;
-                $traffic->rate = $node->traffic_rate;
-                $traffic->traffic = Tools::flowAutoShow(($u + $d) * $node->traffic_rate);
+                $traffic->rate = $traffic_rate;
+                $traffic->traffic = Tools::flowAutoShow(($u + $d) * $traffic_rate);
                 $traffic->log_time = time();
                 $traffic->save();
             }
