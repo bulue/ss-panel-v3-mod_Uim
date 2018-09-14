@@ -43,6 +43,7 @@ window.onload = function(){
 	$("#submit").click(function(){
 		var price = parseFloat($("#amount").val());
 		console.log("将要使用"+type+"方法充值"+price+"元")
+		$("#result").modal();
 		$("#msg").html("正在尝试调用支付宝...");
 		if(isNaN(price)){
 			$("#result").modal();
