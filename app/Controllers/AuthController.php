@@ -200,6 +200,12 @@ class AuthController extends BaseController
                 $res['msg'] = "邮箱无效";
                 return $response->getBody()->write(json_encode($res));
             }
+            
+            if (!Check::filterNormailEmail($email)) {
+                $res['ret'] = 0;
+                $res['msg'] = "抱歉~此邮箱不支持！";
+                return $response->getBody()->write(json_encode($res));
+            }
 
             if (strpos($email, "@yopmail.com") > 0) {
               $res['ret'] = 0;
@@ -310,10 +316,10 @@ class AuthController extends BaseController
             return $response->getBody()->write(json_encode($res));
         }
 
-        if (strpos($email, "@yopmail.com") > 0) {
-          $res['ret'] = 0;
-          $res['msg'] = "邮箱不支持";
-          return $response->getBody()->write(json_encode($res));
+        if (!Check::filterNormailEmail($email)) {
+            $res['ret'] = 0;
+            $res['msg'] = "抱歉~此邮箱不支持！";
+            return $response->getBody()->write(json_encode($res));
         }
         // check email
         $user = User::where('email', $email)->first();
