@@ -177,7 +177,9 @@ class AuthController extends BaseController
             $GtSdk = null;
         }
 
-
+        if (Config::get('register_close') == 'true') {
+            return $this->view()->display('auth/register_close.tpl');
+        }
 
         return $this->view()->assign('enable_invite_code', Config::get('enable_invite_code'))->assign('geetest_html', $GtSdk)->assign('enable_email_verify', Config::get('enable_email_verify'))->assign('code', $code)->display('auth/register.tpl');
     }
