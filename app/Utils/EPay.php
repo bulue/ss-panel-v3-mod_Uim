@@ -120,7 +120,7 @@ class EPay
         require_once("epay.config.php");
         require_once("lib/epay_notify.class.php");
         //计算得出通知验证结果
-        $alipayNotify = new AlipayNotify($alipay_config);
+        $alipayNotify = new \AlipayNotify($alipay_config);
         $verify_result = $alipayNotify->verifyNotify();
 
         if ($verify_result) {//验证成功
