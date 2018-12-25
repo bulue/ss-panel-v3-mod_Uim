@@ -17,13 +17,14 @@
         $('body').append("<script src=\" \/assets\/public\/js\/jquery.qrcode.min.js \"><\/script>");
         $("#submit").click(function(){
             var price = parseFloat($("#amount").val());
-		    console.log("将要充值"+price+"元")
-            $("#result").modal();
-		    $("#msg").html("正在尝试调用支付宝...");
-            if(isNaN(price)){
+		    console.log("将要充值"+price+"元");
+            if(isNaN(price) || price < 0.1){
 			    $("#result").modal();
 			    $("#msg").html("非法的金额!");
+                return;
 		    }
+            $("#result").modal();
+		    $("#msg").html("正在尝试调用支付宝...");
             $.ajax({
                 'url':"/user/epay",
                 'data':{ 
