@@ -358,6 +358,13 @@ $app->group("/doiam",function(){
     $this->post("/status","App\Utils\DoiAMPay:status");
 });
 
+$app->group('/user', function() {
+    $this->post("/epay","App\Utils\EPay:handle");
+})->add(new Auth());
+
+$app->group("/epay", function() {
+    $this->get("/epay_notify", "App\Utils\EPay:handle_callback");
+});
 
 
 // Run Slim Routes for App

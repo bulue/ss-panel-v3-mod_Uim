@@ -11,6 +11,8 @@ class Pay
     {
         $driver = Config::get("payment_system");
         switch ($driver) {
+            case 'epay':
+                return Pay::epay_html($user);
             case "doiampay":
                 return Pay::doiampay_html($user);
             case "paymentwall":
@@ -30,6 +32,10 @@ class Pay
         }
         return null;
     }
+    public static function epay_html(User $user) {
+        return \App\Utils\EPay::render();
+    }
+
     /**
      * DoiamPay
      * @param  User   $user User
