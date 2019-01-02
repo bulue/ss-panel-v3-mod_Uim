@@ -93,8 +93,8 @@
                       <!--标签1开始-->
                       <article id="1">
                       <h2 class="major">简介</h2>
-                      <p>经济型shadowsocks服务, 提供优质快速的服务</p>
-					  <p>专业Shadowsocks科学上网账号，高质量低延迟，安全稳定，专业技术支持 </p>
+                      <p></p>
+					  <p></p>
 					</article>
 					  <!--
 					  简介修改示例:
