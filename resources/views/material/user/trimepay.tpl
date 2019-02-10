@@ -1,7 +1,7 @@
 <div class="row">
 
     <div class="col-lg-6 col-md-6">
-        <p class="card-heading">TrimePay 充值</p>
+        <p class="card-heading">充值</p>
         <div class="form-group form-group-label">
             <label class="floating-label" for="amount">金额</label>
             <input class="form-control" id="amount" type="text" >
