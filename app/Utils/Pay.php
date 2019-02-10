@@ -5,12 +5,16 @@ use App\Models\Code;
 use App\Models\Paylist;
 use App\Models\Payback;
 use App\Services\Config;
+use App\Services\Payment;
+
 class Pay
 {
     public static function getHTML($user)
     {
         $driver = Config::get("payment_system");
         switch ($driver) {
+            case 'trimepay':
+                return Payment::purchaseHTML();
             case 'epay':
                 return Pay::epay_html($user);
             case "doiampay":
