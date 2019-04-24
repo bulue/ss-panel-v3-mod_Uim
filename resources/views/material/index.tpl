@@ -20,8 +20,8 @@
 		{/literal}
 		{/if}
 		<title>{$config["appName"]}</title>
-        <meta name="keywords" content=""/>
-        <meta name="description" content=""/>
+        <meta name="keywords" content="jettss,jett,ss,ssr"/>
+        <meta name="description" content="jettss ss ssr"/>
         <meta charset="utf-8" />
         <link rel="shortcut icon" href="/favicon.ico"/>
         <link rel="bookmark" href="/favicon.ico"/>
