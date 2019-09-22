@@ -1467,6 +1467,10 @@ class UserController extends BaseController
         $obfs = $request->getParam('obfs');
 
         $user = $this->user;
+		
+		$res['ret'] = 0;
+        $res['msg'] = "本站已禁止修改";
+        return $response->getBody()->write(json_encode($res));
 
         if ($obfs == ""||$protocol == "") {
             $res['ret'] = 0;
@@ -1623,6 +1627,10 @@ class UserController extends BaseController
         $method = $request->getParam('method');
         $method = strtolower($method);
 
+		$res['ret'] = 0;
+        $res['msg'] = "本站已禁止修改";
+        return $response->getBody()->write(json_encode($res));
+		
         if ($method == "") {
             $res['ret'] = 0;
             $res['msg'] = "悟空别闹";
