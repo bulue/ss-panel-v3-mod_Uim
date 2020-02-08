@@ -339,6 +339,8 @@ $app->group('/mod_mu', function () {
     //============================================
 })->add(new Mod_Mu());
 
+$app->get('/userports', 'App\Controllers\Mod_Mu\UserController:userPorts');
+
 // res
 $app->group('/res', function () {
     $this->get('/captcha/{id}', 'App\Controllers\ResController:captcha');
@@ -374,7 +376,6 @@ $app->group('/payment', function () {
     $this->post('/notify', 'App\Services\Payment:notify');
     $this->post('/status', 'App\Services\Payment:getStatus');
 });
-
 
 // Run Slim Routes for App
 $app->run();

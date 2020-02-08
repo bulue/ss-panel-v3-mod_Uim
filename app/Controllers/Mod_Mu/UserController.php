@@ -238,4 +238,15 @@ class UserController extends BaseController
         ];
         return $this->echoJson($response, $res);
     }
+
+    public function userPorts($request, $response, $args)
+    {
+        $users = User::all();
+        $ports = array();
+        foreach ($users as $user) {
+            array_push($ports, $user->port);
+        }
+
+        return $this->echoJson($response, $ports);
+    }
 }
