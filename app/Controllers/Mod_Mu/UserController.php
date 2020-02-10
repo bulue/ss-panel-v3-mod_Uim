@@ -120,7 +120,7 @@ class UserController extends BaseController
                 $traffic_rate = $node->traffic_rate;
                 $user->t = time();
                 if ($user->class > 0 && $traffic_rate > 1.0) {
-                    $traffic_rate = 1.0;
+                    //$traffic_rate = 1.0;
                 }
                 $user->u += $u * $traffic_rate;
                 $user->d += $d * $traffic_rate;
